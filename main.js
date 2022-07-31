@@ -25,6 +25,8 @@ rightWristX = 0;
 rightWristY = 0;
 Wristscore = 0;
 
+game_status = "";
+
 function setup() {
   var canvas =  createCanvas(700,600);
   canvas.parent('canvas');
@@ -51,11 +53,14 @@ function gotPoses(results){
 		
 	}
 }
-
+function startGame(){
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game Is Loaded";
+}
 
 function draw(){
 
-  if(Wristscore > 0.2){
+  if(game_status = "start"){
     fill("red");
     stroke("red");
     circle(rightWristX, rightWristY, 30);
